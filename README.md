@@ -39,19 +39,23 @@ To start the daemon, you need 3 arguments:
  - the path of the folder to monitor.
 
 
+Example
+
     $ java -jar afs.jar <device-serial> <password> <path-to-root-folder>
 
 
-Exemple with Eclo demo
+Example with Eclo demo
 ----------------------
+
+Start the daemon 
 
     $ java -jar afs.jar SEB-TEST-ECLO 123456 /home/seb/eclo
 
-You can update the temperature of a greenhouse with
+To update the temperature, simple write the new value in the corresponding file
 
     echo -n "20.5" > /home/seb/eclo/greenhouse/data/temperature
 
-The daemon should log something like
+The daemon will log something like
 
     ENTRY_MODIFY: eclo/greenhouse/data eclo/greenhouse/data/temperature
     Push --> greenhouse.data.temperature: 20.5
@@ -62,5 +66,5 @@ The daemon should log something like
 Next
 ----
  - Develop apply settings
- - generate filesystem from data model
+ - Generate filesystem from the data model contained in the Airvantage Application Model
  
