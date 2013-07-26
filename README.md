@@ -38,6 +38,7 @@ To start the daemon, you need 3 arguments:
  - the device password 
  - the path of the folder to monitor.
 
+
     $ java -jar afs.jar <device-serial> <password> <path-to-root-folder>
 
 
