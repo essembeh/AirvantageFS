@@ -1,4 +1,4 @@
-AirvantageFS (Airvantage Filesytem)
+AirvantageFS (Airvantage Filesystem)
 ===================================
 
 Small dameon to sync a folder with Airvantage Platform using the device REST API
@@ -8,17 +8,22 @@ Small dameon to sync a folder with Airvantage Platform using the device REST API
 Presentation
 ------------
 
-The idea of this makeit is to create a very simple way to send data to the Airvantage platform.
+The idea of this *makeit* is to create a very simple way to send data to the Airvantage platform.
 
 Limitations of existing methods
- - Mihini: Only for linux, too much features if you just want to send data, not so easy to integrate with other languages
- - REST API: Limited to read and some actions, need to implement HTTP-REST client
+ - Mihini 
+   - Only for linux
+   - Too much features if you just want to push data
+   - Limited bindings to allow pushing data with other languages: socket [EMP](http://download.eclipse.org/mihini/doc/agent_connector_libraries/Embedded_Micro_Protocol_EMP.html), c, lua, java (in work)
+ - REST API
+   - Limited, can only push data and read "apply settings" pending operations
+   - Need to implement HTTP-REST client
 
 
 The project 
- - Unique daemon which communicate with the platform
- - Using the filesystem to represent dataset (linux philosophy, everything is a file)
- - Using Java NIO to sync FS and the Airvantage dataset
+ - Small daemon which only communicate with the platform to push datas
+ - Using the filesystem to represent the dataset (linux philosophy, everything is a file)
+ - Using Java NIO to monitor files change on the FS
  - Can be used by every application which can read write files to send data
  - Multi-platform (tested on Linux/MacOS)
  
@@ -65,6 +70,7 @@ The daemon will log something like
 
 Next
 ----
- - Develop apply settings
+ - Develop "apply settings" operations polling to update the filesystem
  - Generate filesystem from the data model contained in the Airvantage Application Model
+ - Using M3DA protocol to reduce payload
  
